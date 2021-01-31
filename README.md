@@ -1,4 +1,4 @@
-# Proyecto: MatchADAS - EQUIPO 4 version BASICA
+# Proyecto: MatchADAS - EQUIPO 4 version 
 ## Tercer proyecto presentado en Curso Frontend 5ta generacion Online
 ### Recursos utilizados.
 
