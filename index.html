@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>MatchADAs</title>
+</head>
+
+<body>
+    <!-- -------------------------------------Inicio Modal Bienvenida -->
+    <div id="contenedor-modal-bienvenida">
+        <div id="modal-bienvenida" class="modal is-active">
+            <div class="modal-background"></div>
+            <div id="modal-tarjeta" class="modal-card">
+                <header class="modal-card-head">
+                    <h1 class="modal-card-title">¡Bienvenidas!</h1>
+                </header>
+                <section id="modal-texto" class="modal-card-body">
+                    <p id="texto">En MatcheADAs tu objetivo es juntar tres o más ítems del mismo tipo, ya sea en fila o columna. Para eso, selecciona un ítem y a continuacion un ítem adyacente para intercambiarlos de lugar.
+                    </p>
+                    <p id="texto">Si se forma un grupo, esos ítems se eliminarán y ganarás puntos. ¡Sigue armando grupos de 3 o más antes de que se acabe el tiempo!</p>
+                </section>
+                <section id="modal-controles" class="modal-card-body ">
+                    <h2 class="modal-card-title">Controles</h2>
+                    <p>Click izquierdo: seleccion</p>
+                    <p>Enter o Espacio: seleccion</p>
+                    <p>Flechas o WASD: movimiento e intercambio</p>
+
+                </section>
+                <footer class="modal-card-foot">
+                    <button id="boton-jugar" class="button is-primary">A Jugar</button>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!----------------------------------------------------- Inicio Modal Dificultades -->
+    <div id="contenedor-modal-dificultad">
+        <div class="modal-dificultad modal">
+            <div class="modal-background">
+                <div id="modal-tarjeta" class="modal-card modal-nuevo-juego">
+                    <header class="modal-card-head">
+                        <h1 class="modal-card-title">Nuevo Juego</h1>
+
+                    </header>
+                    <section id="texto-dificultad" class="modal-card-body">
+                        <p>Selecciona la dificultad</p>
+                    </section>
+                    <footer class="modal-card-foot is-justify-content-center">
+                        <div id="contenedor-boton-facil"><button id="facil" class="boton-dificultad button is-primary ml-4">Fácil</button></div>
+                        <div id="contenedor-boton-medio is-danger"> <button id="medio" class="boton-dificultad button is-primary ml-4">Medio</button></div>
+                        <div id="contenedor-boton-dicil"><button id="dificil" class="boton-dificultad button is-primary ml-4">Difícil</button></div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contenedor-modal-reiniciar">
+        <div class="modal-reiniciar modal ocultar">
+            <div class="modal-background">
+                <div id="modal-tarjeta" class="modal-card modal-reiniciar-juego">
+                    <header class="modal-card-head">
+                        <h1 class="modal-card-title">Reiniciar juego?</h1>
+
+                    </header>
+                    <section id="texto-reiniciar-juego" class="modal-card-body">
+                        <p>Perderas todo el puntaje acumulado!</p>
+                    </section>
+                    <footer class="modal-card-foot is-justify-content-center">
+                        <div id="contenedor-boton-cancelar"><button id="cancelar" class="button is-primary ml-4">Cancelar</button></div>
+                        <div id="contenedor-boton-reiniciar is-danger"> <button id="reiniciar" class="button is-primary ml-4">Reiniciar</button></div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----------------------------------------------------- Inicio Modal Juego Terminado -->
+    <!-- hecho x Sol -->
+    <div id="contenedor-modal-final" class="ocultar">
+        <div class="modal-final modal is-active">
+            <div class="modal-background">
+                <div id="modal-tarjeta" class="modal-card modal-juego-terminado">
+                    <header class="modal-card-head">
+                        <h1 class="modal-card-title">¡Juego terminado!</h1>
+
+                    </header>
+                    <section id="texto-dificultad" class="modal-card-body">
+                        <p>Puntaje final: <span id="puntaje-final">0</span></p>
+                    </section>
+                    <footer class="modal-card-foot is-justify-content-center">
+                        <div id="contenedor-boton-nuevoJuego"><button id="nuevoJuego" class="boton-modalFinal button is-primary ml-4">Nuevo juego</button></div>
+                        <div id="contenedor-boton-medio is-danger"> <button id="medio" class="boton-modalFinal button is-primary ml-4 btn-reniciar-juego-terminado">Reiniciar</button></div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FIN MODALES -->
+    <h1 class="titulo">MatchADAs</h1>
+    <div class="barra-controles">
+        <div class="cuentas">
+            <p>Combo x <span id="matches"> 1 </span></p>
+            <p>Puntos: <span id="puntos"> 0 </span> </p>
+
+        </div>
+        <div class="iconos">
+            <button id="boton-info">
+                <i class="fas fa-info-circle"></i>
+            </button>
+            <button class="reiniciar">
+                <i class="fas fa-undo-alt"></i>
+            </button>
+        </div>
+
+    </div>
+    <!-- INCIO GRILLA -->
+    <div class="contenedor-grilla">
+        <div class="grilla">
+        </div>
+    </div>
+
+    <div class="barra-de-tiempo ocultar">
+        <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+        <p class="tiempo">0:00</p>
+    </div>
+
+    <!-- FIN GRILLA -->
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
