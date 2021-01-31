@@ -21,8 +21,6 @@
 
 [fontawesome](https://fontawesome.com/)
 
-Deployado
 
-[https://daniaramburu.github.io/matchADAs/]
 
 ---
