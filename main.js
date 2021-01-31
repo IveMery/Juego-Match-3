@@ -21,7 +21,7 @@ botonInformacion.onclick = () => {
 
 //para reniciar tiempo ,puntos y combos
 const comenzarJuego = () => {
-    tiempo = 60
+    tiempo = 15
     cuentaRegresiva()
     resetearElPuntaje()
 }
@@ -228,7 +228,7 @@ const rellenarEspacios = () => {
             let y = Number(cuadrado.dataset.y)
             if (cuadrado.innerHTML === '') {
                 grilla[x][y] = obtenerItemAlAzar(items);
-                cuadrado.classList.toggle('aparecer-cuadrado');
+                cuadrado.classList.add('aparecer-cuadrado');
                 setTimeout(() => {
                     cuadrado.innerHTML = grilla[x][y]
                     if (buscarBloqueInicial()) {
@@ -394,15 +394,24 @@ AJugar.onclick = () => {
 
 // ------------------ CUENTA REGRESIVA
 
-let tiempo = 60;
+let tiempo = 15;
 const tiempoHtml = document.querySelector(".tiempo");
 const cuentaRegresiva = () => {
-    tiempoHtml.innerHTML = `0 : ${tiempo}`;
-    if (tiempo > 0) {
+    contadorTiempo = setTimeout(cuentaRegresiva, 1000);
+    if (tiempo > 9) {
+
+        tiempoHtml.innerHTML = `00:${tiempo}`;
         tiempo--;
-        contadorTiempo = setTimeout(cuentaRegresiva, 1000);
-    } else {
+
+    }
+    if (tiempo <= 9 && tiempo >= 0) {
+        tiempoHtml.innerHTML = `00:0${tiempo}`
+        tiempo--;
+
+    } else if (tiempo == -1) {
+
         mostrarJuegoTerminado()
+        limpiarTiempo(contadorTiempo)
     }
 }
 

@@ -23,7 +23,7 @@ body {
 }
 
 .barra-de-tiempo {
-    width: 100px;
+    width: 110px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -240,9 +240,6 @@ body {
 }
 
 .aparecer-cuadrado {
-    /* transform: rotate(-340deg);
-    transition: 2s all; */
-    /* background-color: pink; */
     animation-name: example;
     animation-duration: 1.5s;
 }
